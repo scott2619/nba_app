@@ -13,6 +13,14 @@ class VideoList extends Component {
     amount: this.props.amount
   };
 
+  renderButton = () => {
+    return this.props.loadmore ? (
+      "loadmore"
+    ) : (
+      <Button type="linkTo" cta="More Videos" linkTo="/videos" />
+    );
+  };
+
   renderTitle = () => {
     return this.props.title ? (
       <h3>
@@ -22,7 +30,12 @@ class VideoList extends Component {
   };
 
   render() {
-    return <div>{this.renderTitle()}</div>;
+    return (
+      <div className={style.videoList_wrapper}>
+        {this.renderTitle()}
+        {this.renderButton()}
+      </div>
+    );
   }
 }
 
